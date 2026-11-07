@@ -12,7 +12,7 @@ spec:
       chart: loki
       sourceRef:
         kind: HelmRepository
-        name: grafana-charts
+        name: grafana-community
       interval: 60m
   values:
     chunksCache:

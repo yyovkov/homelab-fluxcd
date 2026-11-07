@@ -9,7 +9,7 @@ spec:
     - name: kube-prometheus-stack
   chart:
     spec:
-      version: "6.x"
+      version: "14.x"
       chart: promtail
       sourceRef:
         kind: HelmRepository
@@ -18,7 +18,7 @@ spec:
   values:
     # https://grafana.com/docs/loki/latest/send-data/promtail/installation/
     config:
-    # publish data to loki
+      # publish data to loki
       clients:
         - url: http://loki-gateway/loki/api/v1/push
           tenant_id: 1

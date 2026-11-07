@@ -50,6 +50,8 @@ spec:
         labels:
           app.kubernetes.io/part-of: kube-prometheus-stack
       storage:
+        bucketNames:
+          chunks: FIXME
         filesystem:
           chunks_directory: /var/loki/chunks
           rules_directory: /var/loki/rules

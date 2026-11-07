@@ -9,7 +9,7 @@ spec:
     - name: kube-prometheus-stack
   chart:
     spec:
-      version: "14.x"
+      version: "14.4.0"
       chart: promtail
       sourceRef:
         kind: HelmRepository

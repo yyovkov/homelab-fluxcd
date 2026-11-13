@@ -1,0 +1,30 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: kube-prometheus-stack
+  namespace: monitoring
+spec:
+  interval: 10m
+  chartRef:
+    kind: OCIRepository
+    name: kube-prometheus-stack
+  install:
+    crds: Create
+  upgrade:
+    crds: CreateReplace
+  driftDetection:
+    mode: enabled
+    ignore:
+      - paths:
+          - /metadata/annotations/prometheus-operator-validate
+        target:
+          kind: PrometheusRule
+  # valuesFrom:
+  #   - kind: ConfigMap
+  #     name: flux-kube-state-metrics-config
+  #     valuesKey: kube-state-metrics-config.yaml
+  values:
+    prometheus-node-exporter:
+      service:
+        port: 9102
+        targetPort: 9102
